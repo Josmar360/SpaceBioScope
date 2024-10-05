@@ -1,5 +1,7 @@
 import pygame
 import sys
+from menu_pantalla import menu_screen
+from catalog_pantalla import catalog_screen
 
 # Inicializa Pygame
 pygame.init()
@@ -30,24 +32,6 @@ def draw_text(text, font, color, surface, x, y):
     textrect.center = (x, y)
     surface.blit(textobj, textrect)
 
-# Función para manejar la pantalla del menú
-def menu_screen():
-    screen.fill(WHITE)
-    draw_text("SpaceBioScope", font, BLACK, screen, screen_width // 2, screen_height // 3)
-    
-    # Dibuja el botón
-    button_rect = pygame.Rect(screen_width // 2 - 500, screen_height // 1.3 - 40, 300, 80)
-    pygame.draw.rect(screen, GREEN, button_rect)
-    draw_text("Catálogo", font, BLACK, screen, screen_width // 2- 400, screen_height // 1.3)
-
-    return button_rect  # Devuelve el rectángulo del botón
-
-# Función para manejar la pantalla del catálogo
-def catalog_screen():
-    screen.fill(WHITE)
-    draw_text("Catalog", font, BLACK, screen, screen_width // 2, screen_height // 3)
-    draw_text("[Esc]", font, BLACK, screen, screen_width // 2, screen_height // 2)
-
 # Bucle principal
 while True:
     # Maneja eventos
@@ -64,11 +48,14 @@ while True:
                 if button_rect.collidepoint(mouse_pos):  # Verifica si se hizo clic en el botón
                     pantalla_actual = PANTALLA_CATALOGO
 
+    # Rellena la pantalla con blanco
+    screen.fill(WHITE)
+
     # Renderiza la pantalla actual
     if pantalla_actual == PANTALLA_MENU:
-        button_rect = menu_screen()  # Guarda el rectángulo del botón
+        button_rect = menu_screen(screen, font, GREEN)  # Llama a la función del menú
     elif pantalla_actual == PANTALLA_CATALOGO:
-        catalog_screen()
+        catalog_screen(screen, font)  # Llama a la función del catálogo
 
     # Actualiza la pantalla
     pygame.display.flip()
