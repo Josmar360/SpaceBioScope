@@ -6,8 +6,8 @@ from PIL import Image
 import io
 import base64
 from .Pantalla_Final import Pantalla_Final
-# from .Informacion_Nebulosa import Informacion_Nebulosa
-# from .Carga_Informacion import Carga_Informacion
+from .Carga_Informacion import Carga_Informacion
+from .Informacion_Mamiferos import Informacion_Mamiferos
 
 # Inicializar Pygame
 pygame.init()
@@ -81,13 +81,13 @@ for documento in collection.find():
     imagenes_escaladas.append(imagen_escalada)
 
 # Imprimir la cantidad de nebulosas cargadas
-print("Número de nebulosas cargadas:", len(imagenes_recuadros))
+print("Número de mamiferos cargadas:", len(imagenes_recuadros))
 
 
 def Catalogo_Mamiferos():
     # Crear la pantalla
     pantalla = pygame.display.set_mode((ANCHO, ALTO))
-    pygame.display.set_caption("Catálogo de Nebulosas")
+    pygame.display.set_caption("Catálogo de Mamiferos")
 
     # Generar estrellas aleatorias
     estrellas = generar_estrellas()
@@ -96,7 +96,8 @@ def Catalogo_Mamiferos():
     fuente_titulo = pygame.font.Font("Font/13_Misa.ttf", 100)
 
     # Texto del título
-    texto_titulo = fuente_titulo.render("Catalogo de Nebulosas", True, BLANCO)
+    texto_titulo = fuente_titulo.render(
+        "Catalogo de Experimentos", True, BLANCO)
     texto_titulo_rect = texto_titulo.get_rect(
         center=(ANCHO / 2, ALTO / 6))  # Centrar el texto
 
@@ -147,9 +148,8 @@ def Catalogo_Mamiferos():
         Pantalla_Final()
 
     def informacion_nebulosa(_id):
-        print("Hola")
-        # Carga_Informacion()
-        # Informacion_Nebulosa(_id)
+        Carga_Informacion()
+        Informacion_Mamiferos(_id)
 
     # Bucle principal
     ejecutando = True
