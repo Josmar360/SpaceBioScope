@@ -46,18 +46,21 @@ def mover_estrellas(estrellas):
 # Funciones para las acciones de los recuadros
 
 def accion_mamiferos():
-    Carga_Catalogo()
+    Carga_Catalogo("Mamiferos")
     print("Acción personalizada para mamiferos")
 
 def accion_semillas():
+    Carga_Catalogo("Semillas")
     print("Acción personalizada para semillas")
 
 
 def accion_microbianos():
+    Carga_Catalogo("Microbianos")
     print("Acción personalizada para microbiano")
 
 
 def accion_humanos():
+    Carga_Catalogo("Humanos")
     print("Acción personalizada para humanos")
 
 
