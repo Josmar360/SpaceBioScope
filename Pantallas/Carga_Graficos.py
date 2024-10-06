@@ -14,10 +14,8 @@ pygame.display.set_caption("Cargado información")
 # Colores
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
-COLORES = [(255, 0, 0), (255, 165, 0), (255, 255, 0), (0, 128, 0),
-           (0, 0, 255), (238, 130, 238)]
 
-# Clase para crear efectos de la nebula
+# Clase para crear efectos de la nebulosa
 
 
 class Nebula:
@@ -53,12 +51,19 @@ def Carga_Graficas():
     reloj = pygame.time.Clock()
     carga_completa = False
     ejecutando = True
-    angulo = 0
-    radio = 0
 
     # Variables de carga
     inicio_carga = pygame.time.get_ticks()
     duracion_carga = 4000  # Duración de la carga en milisegundos (4 segundos)
+
+    # Centro de la pantalla
+    center_x = ANCHO // 2
+    center_y = ALTO // 2
+
+    # Distancia focal
+    focal_length = 200
+    angle_x = 0
+    angle_y = 0
 
     # Bucle principal
     while ejecutando:
@@ -76,9 +81,10 @@ def Carga_Graficas():
         progreso_carga = min(tiempo_actual - inicio_carga, duracion_carga)
         carga_completa = progreso_carga == duracion_carga
 
+        # Limpiar pantalla
         pantalla.fill(NEGRO)
 
-        # Actualizar y dibujar partículas de la nebulosa resplandeciente
+        # Actualizar y dibujar partículas de la nebulosa
         for particula in nebula_particula:
             particula.actualizar()
             particula.dibujar(pantalla)
@@ -92,17 +98,15 @@ def Carga_Graficas():
         texto_rect = texto.get_rect(center=(ANCHO // 2, ALTO // 1.1))
         pantalla.blit(texto, texto_rect)
 
-        # Dibujar la espiral de colores
-        for i, color in enumerate(COLORES):
-            pygame.draw.circle(pantalla, color, (int(ANCHO // 2 + radio * math.cos(
-                angulo + i * math.pi / 3)), int(ALTO // 2 + radio * math.sin(angulo + i * math.pi / 3))), 10)
+        # Dibujar estrellas en esfera
+        for i in range(0, 100):
+            x = int(center_x + focal_length * math.sin(angle_x +
+                    i * 0.1) * math.cos(angle_y + i * 0.1))
+            y = int(center_y + focal_length * math.sin(angle_y + i * 0.1))
+            pygame.draw.circle(pantalla, BLANCO, (x, y), 2)
 
-        angulo += 0.08 # 0.02
-        radio += 0.75 # 0.5
-
-        # Reiniciar la espiral
-        if radio > max(ANCHO, ALTO):
-            radio = 0
+        angle_x += 0.01
+        angle_y += 0.02
 
         # Actualizar pantalla
         pygame.display.flip()
