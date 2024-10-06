@@ -72,6 +72,7 @@ for documento in collection.find():
     except Exception as e:
         print("Error al cargar la imagen:", e)
 
+
 def Informacion_Mamiferos(db_id):
     # Realizar la consulta con proyección para obtener solo los campos específicos
     documento = collection.find_one(
@@ -171,7 +172,7 @@ def Informacion_Mamiferos(db_id):
         "Visualizar", True, BLANCO)
     boton_rect_visualizar = pygame.Rect(
         (ANCHO // 1.3), (ALTO // 1.85), 120, 50)
-    
+
     # Configurar el botón "Tabla de datos"
     fuente_boton_datos = pygame.font.Font(None, 36)
     texto_boton_datos = fuente_boton_datos.render(
@@ -188,9 +189,11 @@ def Informacion_Mamiferos(db_id):
     def accion_salir():
         Pantalla_Final()
 
-    def accion_Visualizar():
-        from Pantallas.Visualizacion import mostrar_grafica
-        mostrar_grafica(db_id)
+    def accion_visualizar(db_id):
+        from Pantallas.Carga_Graficos import Carga_Graficas
+        from Pantallas.Visualizacion import crear_graficas
+        Carga_Graficas()
+        crear_graficas(db_id)
 
     def accion_datos(db_id):
         from Pantallas.Tabla_Datos import visualizar_datos
@@ -219,7 +222,7 @@ def Informacion_Mamiferos(db_id):
                     elif boton_rect_salir.collidepoint(evento.pos):
                         accion_salir()
                     elif boton_rect_visualizar.collidepoint(evento.pos):
-                        accion_Visualizar()
+                        accion_visualizar(db_id)
                     elif boton_rect_datos.collidepoint(evento.pos):
                         accion_datos(db_id)
                     else:
