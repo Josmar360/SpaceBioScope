@@ -14,10 +14,8 @@ pygame.display.set_caption("Cargado información")
 # Colores
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
-COLORES = [(255, 0, 0), (255, 165, 0), (255, 255, 0), (0, 128, 0),
-           (0, 0, 255), (238, 130, 238)]
 
-# Clase para crear efectos de la nebula
+# Clase para crear efectos de la nebulosa
 
 
 class Nebula:
@@ -53,8 +51,7 @@ def Carga_Datos():
     reloj = pygame.time.Clock()
     carga_completa = False
     ejecutando = True
-    angulo = 0
-    radio = 0
+    angle = 0
 
     # Variables de carga
     inicio_carga = pygame.time.get_ticks()
@@ -76,9 +73,10 @@ def Carga_Datos():
         progreso_carga = min(tiempo_actual - inicio_carga, duracion_carga)
         carga_completa = progreso_carga == duracion_carga
 
+        # Limpiar pantalla
         pantalla.fill(NEGRO)
 
-        # Actualizar y dibujar partículas de la nebulosa resplandeciente
+        # Actualizar y dibujar partículas de la nebulosa
         for particula in nebula_particula:
             particula.actualizar()
             particula.dibujar(pantalla)
@@ -92,17 +90,14 @@ def Carga_Datos():
         texto_rect = texto.get_rect(center=(ANCHO // 2, ALTO // 1.1))
         pantalla.blit(texto, texto_rect)
 
-        # Dibujar la espiral de colores
-        for i, color in enumerate(COLORES):
-            pygame.draw.circle(pantalla, color, (int(ANCHO // 2 + radio * math.cos(
-                angulo + i * math.pi / 3)), int(ALTO // 2 + radio * math.sin(angulo + i * math.pi / 3))), 10)
+        # Dibujar la espiral de galaxia
+        for i in range(0, 1000):
+            radius = 5 * math.sqrt(i)
+            x = ANCHO // 2 + radius * math.cos(angle * i)
+            y = ALTO // 2 + radius * math.sin(angle * i)
+            pygame.draw.circle(pantalla, BLANCO, (int(x), int(y)), 1)
 
-        angulo += 0.08 # 0.02
-        radio += 0.75 # 0.5
-
-        # Reiniciar la espiral
-        if radio > max(ANCHO, ALTO):
-            radio = 0
+        angle += 0.001
 
         # Actualizar pantalla
         pygame.display.flip()
