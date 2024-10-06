@@ -171,6 +171,13 @@ def Informacion_Mamiferos(db_id):
         "Visualizar", True, BLANCO)
     boton_rect_visualizar = pygame.Rect(
         (ANCHO // 1.3), (ALTO // 1.85), 120, 50)
+    
+    # Configurar el botón "Tabla de datos"
+    fuente_boton_datos = pygame.font.Font(None, 36)
+    texto_boton_datos = fuente_boton_datos.render(
+        "Datos", True, BLANCO)
+    boton_rect_datos = pygame.Rect(
+        (ANCHO // 1.5), (ALTO // 1.85), 120, 50)
 
     def accion_regresar():
         from .Catalogo_Mamiferos import Catalogo_Mamiferos
@@ -184,6 +191,12 @@ def Informacion_Mamiferos(db_id):
     def accion_Visualizar():
         from Pantallas.Visualizacion import mostrar_grafica
         mostrar_grafica(db_id)
+
+    def accion_datos(db_id):
+        from Pantallas.Tabla_Datos import visualizar_datos
+        from Pantallas.Carga_Datos import Carga_Datos
+        Carga_Datos()
+        visualizar_datos(db_id)
 
     # Bucle principal
     ejecutando = True
@@ -207,6 +220,8 @@ def Informacion_Mamiferos(db_id):
                         accion_salir()
                     elif boton_rect_visualizar.collidepoint(evento.pos):
                         accion_Visualizar()
+                    elif boton_rect_datos.collidepoint(evento.pos):
+                        accion_datos(db_id)
                     else:
                         # Verificar si se hizo clic en la URL
                         for rect, url in render_text_lines(lineas_documento, fuente_secundaria, BLANCO, pantalla, 50, ALTO // 4, 30):
@@ -238,11 +253,13 @@ def Informacion_Mamiferos(db_id):
         pygame.draw.rect(pantalla, NEGRO, boton_rect_salir)
         pygame.draw.rect(pantalla, NEGRO, boton_rect_pagina)
         pygame.draw.rect(pantalla, NEGRO, boton_rect_visualizar)
+        pygame.draw.rect(pantalla, NEGRO, boton_rect_datos)
 
         pantalla.blit(texto_boton_regresar, boton_rect_regresar)
         pantalla.blit(texto_boton_salir, boton_rect_salir)
         pantalla.blit(texto_boton_pagina, boton_rect_pagina)
         pantalla.blit(texto_boton_visualizar, boton_rect_visualizar)
+        pantalla.blit(texto_boton_datos, boton_rect_datos)
 
         pygame.display.flip()
 

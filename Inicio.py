@@ -3,7 +3,6 @@ import random
 import sys
 from Pantallas.Advertencia import Advertencia
 from Pantallas.Pantalla_Final import Pantalla_Final
-from Pantallas.Informacion_Mamiferos import Informacion_Mamiferos
 
 # Inicializar Pygame
 pygame.init()
