@@ -168,7 +168,7 @@ def Informacion_Mamiferos(db_id = "OSD-665"):
     # Configurar el botón "Visualizar"
     fuente_boton_visualizar = pygame.font.Font(None, 36)
     texto_boton_visualizar = fuente_boton_visualizar.render(
-        "Sonificar", True, BLANCO)
+        "Visualizar", True, BLANCO)
     boton_rect_visualizar = pygame.Rect(
         (ANCHO // 1.3), (ALTO // 1.85), 120, 50)
 
@@ -181,8 +181,9 @@ def Informacion_Mamiferos(db_id = "OSD-665"):
     def accion_salir():
         Pantalla_Final()
 
-    def accion_sonificar():
-        print("Hola")
+    def accion_Visualizar():
+        from Pantallas.Visualizacion import mostrar_grafica
+        mostrar_grafica(db_id)
 
     # Bucle principal
     ejecutando = True
@@ -205,7 +206,7 @@ def Informacion_Mamiferos(db_id = "OSD-665"):
                     elif boton_rect_salir.collidepoint(evento.pos):
                         accion_salir()
                     elif boton_rect_visualizar.collidepoint(evento.pos):
-                        accion_sonificar()
+                        accion_Visualizar()
                     else:
                         # Verificar si se hizo clic en la URL
                         for rect, url in render_text_lines(lineas_documento, fuente_secundaria, BLANCO, pantalla, 50, ALTO // 4, 30):
