@@ -1,7 +1,7 @@
 import pygame
 import sys
 import random
-#from .Menu_Principal import Menu_Principal
+from .Menu_Principal import Menu_Principal
 from .Pantalla_Final import Pantalla_Final
 
 
@@ -95,21 +95,22 @@ def efecto_nebulosa():
 
 # Texto de advertencia
 Texto_Advertencia = [
-    "Este programa, Inmersión Espacial, es una creación propia desarrollada",
-    "con fines educativos y de aprendizaje personal. La sonificación de las",
-    "imágenes presentadas en este programa ha sido diseñada y realizada",
-    "exclusivamente por Josmar Gustavo Palomino Castelan, siendo cada sonido",
-    "cuidadosamente creado para acompañar y representar cada imagen específica.",
+    "Este programa, SpaceBioScope, es una creación propia desarrollada",
+    "por TEAM FLDSMDFR con fines educativos y de aprendizaje personal.",
+    "Las visualizaciones generadas en este programa han sido diseñadas",
+    "exclusivamente por el equipo, utilizando datos de los experimentos",
+    "realizados en la Estación Espacial Internacional, incluyendo OSD-379",
+    "y OSD-665.",
     "",
-    "Las imágenes utilizadas en este programa han sido obtenidas de la página",
-    "oficial de la NASA. La NASA proporciona estas imágenes para usos educativos",
-    "y no comerciales, y sus derechos son reservados. Este programa no está",
-    "afiliado, patrocinado ni respaldado por la NASA.",
+    "Los datos utilizados en este programa han sido obtenidos de fuentes",
+    "oficiales de la NASA y están destinados para fines educativos",
+    "y no comerciales. Todos los derechos son reservados y este programa",
+    "no está afiliado, patrocinado ni respaldado por la NASA.",
     "",
     "Se prohíbe la reproducción, distribución o uso comercial de este programa",
-    "sin el consentimiento expreso del autor. Al utilizar este programa, aceptas",
-    "que el contenido se presenta tal cual y que el autor no se responsabiliza",
-    "por cualquier daño o perjuicio derivado del uso de este software."
+    "sin el consentimiento expreso de TEAM FLDSMDFR. Al utilizar este programa,",
+    "aceptas que el contenido se presenta tal cual y que el equipo no se",
+    "responsabiliza por cualquier daño o perjuicio derivado del uso de este software."
 ]
 
 # Bucle principal de la función de advertencia
@@ -179,7 +180,7 @@ def Advertencia():
 
         if carga_completa:
             ejecutando = False
-            # Menu_Principal()
+            Menu_Principal()
 
     # Salir de Pygame
     pygame.quit()
