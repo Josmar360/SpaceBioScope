@@ -156,8 +156,7 @@ def Inicio():
 
         # Cuando la carga está completa, abrir la siguiente ventana
         if carga_completa:
-            Informacion_Mamiferos()
-            #Advertencia()
+            Advertencia()
             break
 
     # Salir de Pygame

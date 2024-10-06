@@ -72,7 +72,7 @@ for documento in collection.find():
     except Exception as e:
         print("Error al cargar la imagen:", e)
 
-def Informacion_Mamiferos(db_id = "OSD-665"):
+def Informacion_Mamiferos(db_id):
     # Realizar la consulta con proyección para obtener solo los campos específicos
     documento = collection.find_one(
         {'_id': db_id},
