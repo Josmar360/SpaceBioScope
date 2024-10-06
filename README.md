@@ -4,7 +4,7 @@ El proyecto busca facilitar la visualización de experimentos biológicos espaci
 ![Pantalla 1](imgrepo/image.png)
 ![Pantalla 2](imgrepo/image-1.png)
 ![Pantalla 3](imgrepo/image-2.png)
-![Pantalla 4](imgrepo/image-4.png)
+![Pantalla 4](imgrepo/image-3.png)
 ![Pantalla 5](imgrepo/image-5.png)
 ![Pantalla 6](imgrepo/image-6.png)
 ![Pantalla 6](imgrepo/image-7.png)
