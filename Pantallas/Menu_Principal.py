@@ -3,6 +3,7 @@ import random
 import sys
 from .Carga_Catalogo import Carga_Catalogo
 from .Pantalla_Final import Pantalla_Final
+from .Catalogo_Mamiferos import Catalogo_Mamiferos
 
 # Inicializar Pygame
 pygame.init()
@@ -47,6 +48,7 @@ def mover_estrellas(estrellas):
 
 def accion_mamiferos():
     Carga_Catalogo("Mamiferos")
+    Catalogo_Mamiferos()
     print("Acción personalizada para mamiferos")
 
 def accion_semillas():
