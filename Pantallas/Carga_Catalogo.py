@@ -46,8 +46,8 @@ def Seleccion_Imagen(Seleccion_Menu):
     case = random.randint(0, 9)
     if (Seleccion_Menu == "Mamiferos"):
         directorio_imagenes = "Imagenes/Pantalla_Carga/Mamiferos"
-        imagen_carga = ["Carina_Nebula.png", "Casiopea_A.png", "Cat_s_Eye_Nebula.png", "Crab_Nebula.png", "Keyhole_Nebula.png",
-                        "Nebula_IC_2631.png", "Orion_Bar.png", "Orion_Nebula.png", "Pillars_of_Creation.png", "Ring_Nebula.png"]
+        imagen_carga = ["Carga_Mamifero_01.jpg", "Carga_Mamifero_02.jpg", "Carga_Mamifero_03.jpg", "Carga_Mamifero_04.jpg", "Carga_Mamifero_05.jpg",
+                        "Carga_Mamifero_06.jpg", "Carga_Mamifero_07.jpg", "Carga_Mamifero_08.jpg", "Carga_Mamifero_09.jpg", "Carga_Mamifero_10.jpg", ]
     elif (Seleccion_Menu == "Semillas"):
         directorio_imagenes = "Imagenes/Menu_Principal"
         imagen_carga = ["Menu_Semillas.jpg", "Menu_Semillas.jpg", "Menu_Semillas.jpg", "Menu_Semillas.jpg", "Menu_Semillas.jpg",
